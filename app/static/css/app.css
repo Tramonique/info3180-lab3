@@ -1,3 +1,32 @@
 body {
     padding-top: 5rem;
+    background: linear-gradient(135deg, #fbcfe8, #e9d5ff, #bae6fd);
+    min-height: 100vh
+}
+
+/* Card Styling */
+.card {
+  border: none;
+  border-radius: 15px;
+}
+
+.card-body {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #f8c8dc, #d8b4f8);
+  border: none;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #d8b4f8, #a0d8ef);
+}
+
+/* Flash Success */
+.flashes li.success {
+  background: #e9d5ff;
+  color: #5b21b6;
+  border: 1px solid #d8b4f8;
 }

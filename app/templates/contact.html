@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block main %}
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <div class="card shadow-sm mt-4">
+        <div class="card-body p-4">
+          <h1 class="h3 mb-3">Contact Form</h1>
+          <p class="text-muted mb-4">Fill out the form and your message will be sent.</p>
+
+          <form method="POST" action="{{ url_for('contact') }}" novalidate>
+            {{ form.csrf_token }}
+
+            <div class="mb-3">
+              <label class="form-label">
+                {{ form.name.label.text }}
+                <span class="text-danger ms-1 small">(Required)</span>
+              </label>
+              {{ form.name(class="form-control", placeholder="Enter your full name", required=True) }}
+              {% if form.name.errors %}
+                <div class="text-danger small mt-1">{{ form.name.errors[0] }}</div>
+              {% endif %}
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">
+                {{ form.email.label.text }}
+                <span class="text-danger ms-1 small">(Required)</span>
+              </label>
+              {{ form.email(class="form-control", placeholder="Enter a valid email address", required=True) }}
+              {% if form.email.errors %}
+                <div class="text-danger small mt-1">{{ form.email.errors[0] }}</div>
+              {% endif %}
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">
+                {{ form.subject.label.text }}
+                <span class="text-danger ms-1 small">(Required)</span>
+              </label>
+              {{ form.subject(class="form-control", placeholder="What is this about?", required=True) }}
+              {% if form.subject.errors %}
+                <div class="text-danger small mt-1">{{ form.subject.errors[0] }}</div>
+              {% endif %}
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">
+                {{ form.message.label.text }}
+                <span class="text-danger ms-1 small">(Required)</span>
+              </label>
+              {{ form.message(class="form-control", rows="5", placeholder="Type your message here", required=True) }}
+              {% if form.message.errors %}
+                <div class="text-danger small mt-1">{{ form.message.errors[0] }}</div>
+              {% endif %}
+            </div>
+
+            <div class="d-grid">
+              {{ form.submit(class="btn btn-primary btn-lg") }}
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
